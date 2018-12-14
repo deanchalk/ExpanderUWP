@@ -1,0 +1,47 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ExpanderUWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:xp="using:Expander"
+    x:Class="ExpanderUWP.MainPage"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Margin="20,20,20,10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <CheckBox Content="expander 1 is expanded" HorizontalAlignment="Stretch" Margin="0,0,0,5" VerticalAlignment="Top" d:LayoutOverrides="Width" IsChecked="{Binding ElementName=Expander1, Path=IsExpanded, Mode=TwoWay}"/>
+            <CheckBox Content="expander 2 is expanded" HorizontalAlignment="Stretch" Margin="0,0,0,5" VerticalAlignment="Top" d:LayoutOverrides="Width" Grid.Row="1" IsChecked="{Binding ElementName=Expander2, Path=IsExpanded, Mode=TwoWay}"/>
+        </Grid>
+        <StackPanel Margin="20" Grid.Row="1">
+            <xp:Expander x:Name="Expander1" VerticalAlignment="Top" Margin="0,0,0,10" IsExpanded="False">
+                <xp:Expander.HeaderButtonContent>
+                    <TextBlock Text="This is the header - expander 1" VerticalAlignment="Center" Style="{StaticResource SubtitleTextBlockStyle}" />
+                </xp:Expander.HeaderButtonContent>
+                <Grid Height="250" Background="#FFF5F1D9">
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="This is the content" VerticalAlignment="Center" Style="{StaticResource HeaderTextBlockStyle}"/>
+                </Grid>
+            </xp:Expander>
+            <xp:Expander x:Name="Expander2" VerticalAlignment="Top" Margin="0" IsExpanded="True">
+                <xp:Expander.HeaderButtonContent>
+                    <TextBlock Text="This is the header - expander 2" VerticalAlignment="Center" Style="{StaticResource SubtitleTextBlockStyle}" />
+                </xp:Expander.HeaderButtonContent>
+                <Grid Height="250" Background="#FFD9F1F5">
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="This is the content" VerticalAlignment="Center" Style="{StaticResource HeaderTextBlockStyle}"/>
+                </Grid>
+            </xp:Expander>
+        </StackPanel>
+    </Grid>
+</Page>
